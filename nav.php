@@ -35,7 +35,17 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
+
+        <?php if(empty($_SESSION['ID'])){ ?>
         <li><a href="formlogon.php"><span class="glyphicon glyphicon-log-in"> Logon </span></a></li>
+        <?php } else {
+          $consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");
+          $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);
+        ?>
+        <li><a href="#"><span class="glyphicon glyphicon-user"> <? echo $exibe_usuario['nm_usuario'];?> </span></a><li>
+        <li><a href="sair.php"><span class="glyphicon glyphicon-log-out"> Sair</span></a><li>
+        <?php } ?>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

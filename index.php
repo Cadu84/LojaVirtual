@@ -19,9 +19,12 @@
 </head>
 <body>
     <?php 
+
+    session_start();
+    include 'conexao.php';
     include 'nav.php';
     include 'cabecalho.html'; 
-    include 'conexao.php';
+    
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query
     $consulta = $cn->query('select nm_guitarra, vl_preco, img_guitarra from vw_guitarra'); 
@@ -32,7 +35,7 @@
             <?php while ($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
             <div class="col-sm-3">
                 <img src="Imagens/<?php echo $exibe['img_guitarra']; ?>.jpg" class="img-responsive" style="width:100%">
-                <div><h4><b><?php echo mb_strimwidth ($exibe['nm_guitarra'], 0, 30, '...');?></b></h4></div>
+                <div><h4><b><?php echo mb_strimwidth ($exibe['nm_guitarra'], 0, 30, '...');?></b></h4></div> <!-- limitando o número de caracteres -->
                  <div><h5>R$ <?php echo number_format ($exibe['vl_preco'], 3,'.',','); ?></h5></div>
 
                 <div class="text-center">

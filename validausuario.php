@@ -1,6 +1,8 @@
 <?php 
 include 'conexao.php';
 
+session_start(); //iniciando uma sessão
+
 $Vemail = $_POST['txtemail'];
 $Vsenha = $_POST['txtsenha'];
 
@@ -10,10 +12,12 @@ $Vsenha = $_POST['txtsenha'];
 $consulta = $cn->query("select cd_usuario, nm_usuario, ds_email, ds_senha, ds_status from tbl_usuario where ds_email = '$Vemail' and ds_senha = '$Vsenha'");
 //rowCount vai verificar se existe uma linha. Se tem email cadastrado terá, senão não está cadastrado.
 if($consulta->rowCount() == 1) { 
-    echo 'usuario Está Cadastrado';
+    $exibeUsuario = $consulta->fetch(PDO::FETCH_ASSOC); // criando uma variável que vai receber $consulta do tipo array
+    $_SESSION['ID'] = $exibeUsuario['cd_usuario']; //variável de sessao do tipo id recebe o código do usuário 
+    header('location:index.php'); //se o usuario existir, será direcionado para index.php
 }
 else{
-    echo 'usuario NÃO Cadastrado';
+    header('location:erro.php'); // senão será direcionado para página erro.php
 }
 
 ?>

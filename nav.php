@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"> Guitarras on-line <img src="" alt=""></a>
+      <a class="navbar-brand" href="#"> Guitarras On-line <img src="" alt=""></a>
     </div>
     <!-- Colete os links de navegação, formulários e outros conteúdos para alternar -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,7 +35,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"> Logon </span></a></li>
+        <li><a href="formlogon.php"><span class="glyphicon glyphicon-log-in"> Logon </span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

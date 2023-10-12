@@ -23,7 +23,7 @@
     include 'cabecalho.html'; 
     include 'conexao.php';
     
-    //Método GET serve para recuperar um dado. No caso foi criado uma variável chamada 'cat' para recuperar ou chamar os dados. Repare no 'nav.php'.
+    //Método GET serve para recuperar um dado. No caso foi criado uma variável chamada 'cat' para recuperar ou chamar os dados. Repare no 'nav.php'!.
     $cat = $_GET['cat'];
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query

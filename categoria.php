@@ -22,9 +22,12 @@
     include 'nav.php';
     include 'cabecalho.html'; 
     include 'conexao.php';
+    
+    //Método GET serve para recuperar um dado. No caso foi criado uma variável chamada 'cat' para recuperar ou chamar os dados. Repare no 'nav.php' 
+    $cat = $_GET['cat'];
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query
-    $consulta = $cn->query('select nm_guitarra, vl_preco, img_guitarra from vw_guitarra'); 
+    $consulta = $cn->query("select nm_guitarra, vl_preco, img_guitarra, qt_estoque from vw_guitarra where ds_categoria = '$cat'"); 
     ?> 
 
     <div class="container-fluid">
@@ -44,7 +47,7 @@
 
                 <div class="text-center" style="margin-top:5px; margin-bottom:5px;">
                     
-                    <?php if($exibe=["qt_estoque"] > 0) 
+                    <?php if($exibe["qt_estoque"] > 0) 
                     { ?>
 
                     <button class="btn btn-lg btn-block btn-info">

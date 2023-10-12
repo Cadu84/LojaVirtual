@@ -24,7 +24,7 @@
     include 'conexao.php';
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query
-    $consulta = $cn->query('select nm_guitarra, vl_preco, img_guitarra from vw_guitarra'); 
+    $consulta = $cn->query('select nm_guitarra, vl_preco, img_guitarra from vw_guitarra where sg_lancamento = "S"'); 
     ?> 
 
     <div class="container-fluid">
@@ -44,7 +44,7 @@
 
                 <div class="text-center" style="margin-top:5px; margin-bottom:5px;">
                     
-                    <?php if($exibe=["qt_estoque"] > 0) 
+                    <?php if($exibe["qt_estoque"] > 0) 
                     { ?>
 
                     <button class="btn btn-lg btn-block btn-info">

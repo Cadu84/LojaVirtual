@@ -8,22 +8,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"> Books on-line <img src="imagens/livros.png" alt="livrosNavbar"></a>
+      <a class="navbar-brand" href="#"> Guitarras on-line <img src="" alt=""></a>
     </div>
     <!-- Colete os links de navegação, formulários e outros conteúdos para alternar -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Lançamentos</a></li>
+        <li><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="lanc.php">Lançamentos</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Designer</a></li>
-            <li><a href="#">Infra-Estrutura</a></li>
-            <li><a href="#">Dados</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Front End</a></li>
-            <li><a href="#">Mobile</a></li>
+            <li><a href="categoria.php?cat=Stratocaster">Stratocaster</a></li>
+            <li><a href="categoria.php?cat=Les Paul">Les Paul</a></li>
+            <li><a href="categoria.php?cat=TeleCaster">TeleCaster</a></li>
+            <!-- <li role="separator" class="divider"></li> -->
+            <li><a href="categoria.php?cat=SG">SG</a></li>
+            <li><a href="categoria.php?cat=Flying V">Flying V</a></li>
           </ul>
         </li>
       </ul>

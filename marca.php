@@ -21,10 +21,13 @@
     <?php 
     include 'nav.php';
     include 'conexao.php';
+    
+    //Método GET serve para recuperar um dado. No caso foi criado uma variável chamada 'cat' para recuperar ou chamar os dados. Repare no 'nav.php'!.
+    $mar = $_GET['mar'];
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query
-    $consulta = $cn->query('select cd_guitarra, nm_guitarra, vl_preco, img_guitarra, qt_estoque from vw_guitarra where sg_lancamento = "S"'); 
-    ?> 
+    $consulta = $cn->query("select cd_guitarra, nm_guitarra, vl_preco, img_guitarra, qt_estoque from vw_guitarra where nm_marca = '$mar'"); 
+	?>
 
     <div class="container-fluid">
         <div class="row">
@@ -46,11 +49,10 @@
                     
                     <?php if($exibe["qt_estoque"] > 0) 
                     { ?>
-
-                    <a href="carrinho.php?cd=<?php echo $exibe['cd_guitarra']; ?>"> 
-                    <button class="btn btn-block btn-lg btn-primary">
-                        <span class="glyphicon glyphicon-usd"> Comprar</span>
-                    </button>
+                    <a href="carrinho.php?cd=<?php echo $exibe['cd_guitarra']; ?>">
+                        <button class="btn btn-block btn-lg btn-primary">
+                             <span class="glyphicon glyphicon-usd"> Comprar</span>
+                        </button>
                     </a>
                     <?php } 
 

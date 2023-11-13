@@ -30,7 +30,6 @@
 	
 	include 'conexao.php';	
 	include 'nav.php';
-	include 'cabecalho.html';
 	
 	?>
 	
@@ -41,7 +40,7 @@
 		
 			<div class="col-sm-4 col-sm-offset-4"> <!-- Criar coluna de 4 posições -->
 				
-				<h2>Logon de Usuário</h2>
+				<h2>Login de Usuário</h2>
                 <form name="frmusuario" method="post" action="validausuario.php">
 				
 					<div class="form-group"> <!-- formulário do bootstrap-->
@@ -62,13 +61,23 @@
 					<span class="glyphicon glyphicon-ok"> Entrar</span>
 					
 				</button>
-				
-				<button type="submit" class="btn btn-lg btn-link">
+				</form>	
+
+				<a href="formusuario.php">
+				<button type="button" class="btn btn-lg btn-link">
 					
 					Ainda não sou cadastrado
 					
 				</button>
-				</form>			
+                </a>
+
+				<a href="esquecisenha.php">
+					<button type="button" class="btn btn-lg btn-link" style="text-align:left;">
+
+					Esqueci a senha
+					
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>

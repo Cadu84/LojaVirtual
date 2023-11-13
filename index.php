@@ -12,10 +12,14 @@
 <!-- JavaScript compilado-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" href="style.css">
+
     <title>Campos Guitar </title>
-    <style type="text/css">
-        .navbar{margin-bottom: 0;}
-    </style>
+   <style class="text/css">
+    .navbar{
+        margin-bottom: 0;
+    }
+   </style>
 </head>
 <body>
     <?php 
@@ -27,38 +31,43 @@
     
 
     //Variável consulta vai receber variável $cn que receberá o resultado de uma query
-    $consulta = $cn->query('select nm_guitarra, vl_preco, img_guitarra from vw_guitarra'); 
+    $consulta = $cn->query('select cd_guitarra, nm_guitarra, vl_preco, img_guitarra, qt_estoque from vw_guitarra'); 
     ?> 
 
     <div class="container-fluid">
         <div class="row">
             <?php while ($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
             <div class="col-sm-3">
-                <img src="Imagens/<?php echo $exibe['img_guitarra']; ?>.jpg" class="img-responsive" style="width:100%">
+                <img src="imagens/<?php echo $exibe['img_guitarra']; ?>" class="img-responsive" style="width:100%">
                 <div><h4><b><?php echo mb_strimwidth ($exibe['nm_guitarra'], 0, 30, '...');?></b></h4></div> <!-- limitando o número de caracteres -->
                  <div><h5>R$ <?php echo number_format ($exibe['vl_preco'], 3,'.',','); ?></h5></div>
 
-                <div class="text-center">
-                    <button class="btn btn-lg btn-block btn-default">
-                        <span class="glyphicon glyphicon-info-sign" style="color:cadetblue"> Detalhes</span>
-
+                 <div class="text-center">
+                    <a href="detalhes.php?cd=<?php echo $exibe['cd_guitarra']; ?>">
+                    <button class="btn btn-block btn-lg btn-warning">
+                        <span class="glyphicon glyphicon-info-sign" style="color:black"> <b>Detalhes</b></span>
                     </button>
+                   </a>
                 </div>
 
                 <div class="text-center" style="margin-top:5px; margin-bottom:5px;">
                     
-                    <?php if($exibe=["qt_estoque"] > 0) 
+                    
+                    <?php if($exibe["qt_estoque"] > 0) 
                     { ?>
 
-                    <button class="btn btn-lg btn-block btn-info">
-                        <span class="glyphicon glyphicon-usd"> Comprar</span>
+                    <a href="carrinho.php?cd=<?php echo $exibe['cd_guitarra']; ?>">
+                    <button class="btn btn-block btn-lg btn-primary">
+                        <span class="glyphicon glyphicon-usd"><b>Comprar</b></span>
                     </button>
+                    </a>
                     <?php } 
+                    
 
                     else { ?>
 
                     <button class="btn btn-lg btn-block btn-danger" disabled>
-                        <span class="glyphicon glyphicon-remove-circle"> Indisponível</span>
+                        <span class="glyphicon glyphicon-remove-circle"> <b>Indisponível</b></span>
                     </button>
                     <?php } ?>                    
                 </div>
